@@ -1,0 +1,78 @@
+
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    background-color: #F9F6FD;
+  }
+  .row{
+    margin-bottom: 3vh;
+  }
+  .encabezado{
+    background-color: #FF5500;
+    background-image: url("Images/FondoPicada.jpeg");
+    background-size: 100%;
+    background-position-y: center;
+  }
+  .degradado{
+    background-image: linear-gradient(to bottom, rgba(249, 246, 253, 0.007) 25%, rgba(249, 246, 253, 0.226) 50%, rgba(249, 246, 253, 0.472) 75%, rgb(249, 246, 253) 100%);
+    padding: 2vh 0;
+    width: 100%;
+  }
+  .encabezado img{
+    width: 20vh;
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+  }
+  h1{
+    color: black;
+  }
+
+  #showData .container, h1{
+    background-color: transparent;
+    padding: 0 3vh;
+  }
+  .container .row .col-xl-3{
+    border-radius: 7px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    padding: 2vh 0vh;
+    margin: 1vh 2vh;
+    box-shadow:  12px 12px 78px #e3e3e3,
+             -12px -12px 78px #ffffff;
+  }
+  .container .row{
+    justify-content: center;
+  }
+  .col-4{
+    display: flex;
+   align-items: center;
+   justify-content: center;
+  }
+  .col-4 img{
+    background-repeat: no-repeat;
+    width: 12vh;
+    border-radius: 17%;
+  }
+  .container .informacion{
+    color: black;
+    padding: 0 2vh 0 2vh;
+    position: relative;
+  }
+  .informacion h5, .informacion small, .informacion p{
+    text-align: left;
+  }
+  .informacion h5{
+    font-size: 2.2vh;
+  }
+  .informacion small{
+    font-size: 1.3vh;
+  }
+  .informacion p{
+    font-size: 2vh;
+    position: absolute;
+    top: 80%;
+  }
