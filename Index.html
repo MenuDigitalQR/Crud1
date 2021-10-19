@@ -28,7 +28,6 @@
       font-size: 5px;
     }
 #loader {
-visibility:hidden;
 }
 
 </style>
@@ -80,7 +79,7 @@ $.getJSON(url, function (json) {
 
 
           let col = document.createElement("div");
-          col.className = 'col-xl-3';
+          col.className = 'col-xl-3 product-item';
           row.appendChild(col);
 
           // Producto
@@ -138,6 +137,17 @@ $.getJSON(url, function (json) {
 
   </script>
 
+<script type="text/javascript">
+  $(document).ready(function() {
+    setTimeout(function() {
+      $(".desaparece").fadeOut(2500);
+    },1600);
+
+    setTimeout(function() {
+      $(".aparece").fadeIn(2300);
+    },1900);
+  });
+</script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -146,9 +156,11 @@ $.getJSON(url, function (json) {
 
   <title>Pizzas y Empanadas</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-  
 <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="styles.scss">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
 
 <style>
   /*===== GOOGLE FONTS =====*/
@@ -178,15 +190,24 @@ font-size: 1.8vh;
 
 </head>
 <body id="cuerpo">
+      
+      <div class="desaparece">
+      </div>
 
+      <div class="aparece" style="display: none;">
+        
         <div class="encabezado">
           <div class="degradado">
             <img src="Images/LogoFinal.png">
           </div>
         </div>
+        
 
-        <div style="margin: 5vh 0;">
-        <h1>El Tangal</h1>
+        <div style="margin: 5vh 0 0 0;">
+          <form action="">
+            <input type="search" list="datalistOptions" id="exampleDataList" onkeyup="myFunction()" placeholder="Busqueda por nombre" required>
+            <i class="fa fa-search"></i>
+          </form>
         </div>
 
         <div style="margin-top: 0vh;">
@@ -208,15 +229,46 @@ font-size: 1.8vh;
             <p class="text"><a href="https://api.whatsapp.com/send?phone=+5491166965813&text=%C2%A1Hola!%20%C2%BFC%C3%B3mo%20estas?%20Me%20gustar%C3%ADa%20hacerte%20una%20consulta%20acerca%20de%20la%20carta%20digital">Diseño y Desarrollo por Diego Simón</a></p>
             <p class="text" style="font-size: 1.5vh;">©El Tangal 2021 | Todos los derechos reservados.</p>
         </section>
+      </div>
+  
+  <script>
+    const clearInput = () => {
+      const input = document.getElementsByTagName("input")[0];
+      input.value = "";
+    }
 
+    const clearBtn = document.getElementById("clear-btn");
+    clearBtn.addEventListener("click", clearInput);
 
+  </script>
   <script>
     window.onload = function Ejemplo(){
       $("#b1").click();
     }
-</script>
-
+  </script>
   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
- 
+  <script>
+    function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("exampleDataList");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("content");
+    tr = table.getElementsByClassName("product-item");
+
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByClassName("titulo")[0];
+        if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+        }
+    }
+    }
+  </script>
 </body>
 <html>
